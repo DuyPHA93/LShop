@@ -1,0 +1,1 @@
+<span class="amount">{{ number_format(html_entity_decode($slot)) }} ₫</span>
