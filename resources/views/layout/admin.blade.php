@@ -55,7 +55,7 @@
                                     <li><a href="#"> <span class="menu-icon"><i class="fa-solid fa-gears"></i></span>
                                             <span class="menu-text">Cài đặt</span>
                                         </a></li>
-                                    <li><a href="{{ url('/admin/logout') }}">
+                                    <li><a href="{{ route('logoutAdmin') }}">
                                             <span class="menu-icon"><i
                                                     class="fa-solid fa-right-from-bracket"></i></span> <span
                                                 class="menu-text">Đăng xuất</span>

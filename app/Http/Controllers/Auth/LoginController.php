@@ -105,7 +105,7 @@ class LoginController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('admin/login');
+        return redirect('master/login');
     }
 
     /**
