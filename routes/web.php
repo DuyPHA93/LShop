@@ -40,13 +40,13 @@ Route::get('/order-detail/{id?}', [UserController::class, 'showOrderDetail'])->n
 Route::get('/register', [RegisterController::class, 'showRegisterForm']);
 Route::post('/performRegister', [RegisterController::class, 'perform']);
 
-Route::get('/admin/login', [LoginController::class, 'showAdminLoginForm'])->name('login');
+Route::get('/master/login', [LoginController::class, 'showAdminLoginForm'])->name('login');
 Route::get('/login', [LoginController::class, 'showUserLoginForm'])->name('showUserLoginForm');
-Route::post('/admin/login', [LoginController::class, 'authenticateAdmin']);
+Route::post('/master/login', [LoginController::class, 'authenticateAdmin']);
 Route::post('/login', [LoginController::class, 'authenticateUser']);
 Route::get('/checkAuth', [LoginController::class, 'checkAuth'])->name('checkAuth');
 
-Route::get('/admin/logout', [LoginController::class, 'logoutAdmin'])->name('logoutAdmin');
+Route::get('/master/logout', [LoginController::class, 'logoutAdmin'])->name('logoutAdmin');
 Route::get('/logout', [LoginController::class, 'logoutUser'])->name('logoutUser');
 
 Route::middleware('auth')->group(function() {
@@ -55,39 +55,39 @@ Route::middleware('auth')->group(function() {
 });
 
 Route::middleware(['auth', 'admin'])->group(function() {
-    Route::get('/admin/dashboard',                  [DashboardController::class, 'index'])              ->name('dashboard');
-    Route::get('/admin/productTypes',               [ProductTypeController::class, 'masterList'])       ->name('productTypeMasterList');
-    Route::get('/admin/brands',                     [BrandController::class, 'masterList'])             ->name('brandMasterList');
-    Route::get('/admin/products',                   [ProductController::class, 'masterList'])           ->name('productMasterList');
-    Route::get('/admin/featuredProducts',           [FeaturedProductController::class, 'masterList'])   ->name('featuredProductMasterList');
-    Route::get('/admin/users',                      [UserController::class, 'masterList'])              ->name('userMasterList');
-    Route::get('/admin/orders',                     [OrderController::class, 'masterList'])             ->name('orderMasterList');
+    Route::get('/master/dashboard',                  [DashboardController::class, 'index'])              ->name('dashboard');
+    Route::get('/master/productTypes',               [ProductTypeController::class, 'masterList'])       ->name('productTypeMasterList');
+    Route::get('/master/brands',                     [BrandController::class, 'masterList'])             ->name('brandMasterList');
+    Route::get('/master/products',                   [ProductController::class, 'masterList'])           ->name('productMasterList');
+    Route::get('/master/featuredProducts',           [FeaturedProductController::class, 'masterList'])   ->name('featuredProductMasterList');
+    Route::get('/master/users',                      [UserController::class, 'masterList'])              ->name('userMasterList');
+    Route::get('/master/orders',                     [OrderController::class, 'masterList'])             ->name('orderMasterList');
     
-    Route::get('/admin/productType/{id?}',          [ProductTypeController::class, 'masterDetail'])     ->name('productTypeDetail');
-    Route::get('/admin/brand/{id?}',                [BrandController::class, 'masterDetail'])           ->name('brandDetail');
-    Route::get('/admin/product/{id?}',              [ProductController::class, 'masterDetail'])         ->name('productDetail');
-    Route::get('/admin/featuredProduct/{id?}',      [FeaturedProductController::class, 'masterDetail']) ->name('featuredProductDetail');
-    Route::get('/admin/user/{id?}',                 [UserController::class, 'masterDetail'])            ->name('userDetail');
-    Route::get('/admin/order/{id?}',                [OrderController::class, 'masterDetail'])           ->name('orderDetail');
+    Route::get('/master/productType/{id?}',          [ProductTypeController::class, 'masterDetail'])     ->name('productTypeDetail');
+    Route::get('/master/brand/{id?}',                [BrandController::class, 'masterDetail'])           ->name('brandDetail');
+    Route::get('/master/product/{id?}',              [ProductController::class, 'masterDetail'])         ->name('productDetail');
+    Route::get('/master/featuredProduct/{id?}',      [FeaturedProductController::class, 'masterDetail']) ->name('featuredProductDetail');
+    Route::get('/master/user/{id?}',                 [UserController::class, 'masterDetail'])            ->name('userDetail');
+    Route::get('/master/order/{id?}',                [OrderController::class, 'masterDetail'])           ->name('orderDetail');
     
-    Route::post('/admin/productType/{id?}',         [ProductTypeController::class, 'save'])             ->name('saveProductType');
-    Route::post('/admin/brand/{id?}',               [BrandController::class, 'save'])                   ->name('saveBrand');
-    Route::post('/admin/product/{id?}',             [ProductController::class, 'save'])                 ->name('saveProduct');
-    Route::post('/admin/featuredProduct/{id?}',     [FeaturedProductController::class, 'save'])         ->name('saveFeaturedProduct');
-    Route::post('/admin/user/{id?}',                [UserController::class, 'save'])                    ->name('saveUser');
-    Route::post('/admin/order/{id?}',               [OrderController::class, 'save'])                   ->name('saveOrder');
+    Route::post('/master/productType/{id?}',         [ProductTypeController::class, 'save'])             ->name('saveProductType');
+    Route::post('/master/brand/{id?}',               [BrandController::class, 'save'])                   ->name('saveBrand');
+    Route::post('/master/product/{id?}',             [ProductController::class, 'save'])                 ->name('saveProduct');
+    Route::post('/master/featuredProduct/{id?}',     [FeaturedProductController::class, 'save'])         ->name('saveFeaturedProduct');
+    Route::post('/master/user/{id?}',                [UserController::class, 'save'])                    ->name('saveUser');
+    Route::post('/master/order/{id?}',               [OrderController::class, 'save'])                   ->name('saveOrder');
 
-    Route::post('/admin/productTypes/delete',       [ProductTypeController::class, 'delete'])           ->name('deleteProductType');
-    Route::post('/admin/brands/delete',             [BrandController::class, 'delete'])                 ->name('deleteBrand');
-    Route::post('/admin/products/delete',           [ProductController::class, 'delete'])               ->name('deleteProduct');
-    Route::post('/admin/featuredProducts/delete',   [FeaturedProductController::class, 'delete'])       ->name('deleteFeaturedProduct');
-    Route::post('/admin/users/delete',              [UserController::class, 'delete'])                  ->name('deleteUser');
+    Route::post('/master/productTypes/delete',       [ProductTypeController::class, 'delete'])           ->name('deleteProductType');
+    Route::post('/master/brands/delete',             [BrandController::class, 'delete'])                 ->name('deleteBrand');
+    Route::post('/master/products/delete',           [ProductController::class, 'delete'])               ->name('deleteProduct');
+    Route::post('/master/featuredProducts/delete',   [FeaturedProductController::class, 'delete'])       ->name('deleteFeaturedProduct');
+    Route::post('/master/users/delete',              [UserController::class, 'delete'])                  ->name('deleteUser');
 
-    Route::post('/admin/productTypes/disable',      [ProductTypeController::class, 'disable'])          ->name('disableProductType');
-    Route::post('/admin/brands/disable',            [BrandController::class, 'disable'])                ->name('disableBrand');
-    Route::post('/admin/products/disable',          [ProductController::class, 'disable'])              ->name('disableProduct');
-    Route::post('/admin/featuredProducts/disable',  [FeaturedProductController::class, 'disable'])      ->name('disableFeaturedProduct');
-    Route::post('/admin/users/disable',             [UserController::class, 'disable'])                 ->name('disableUser');
+    Route::post('/master/productTypes/disable',      [ProductTypeController::class, 'disable'])          ->name('disableProductType');
+    Route::post('/master/brands/disable',            [BrandController::class, 'disable'])                ->name('disableBrand');
+    Route::post('/master/products/disable',          [ProductController::class, 'disable'])              ->name('disableProduct');
+    Route::post('/master/featuredProducts/disable',  [FeaturedProductController::class, 'disable'])      ->name('disableFeaturedProduct');
+    Route::post('/master/users/disable',             [UserController::class, 'disable'])                 ->name('disableUser');
 
-    Route::get('/admin/getBrandHtml',               [BrandController::class, 'getBrandHtml'])           ->name('getBrandHtml');
+    Route::get('/master/getBrandHtml',               [BrandController::class, 'getBrandHtml'])           ->name('getBrandHtml');
 });

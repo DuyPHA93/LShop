@@ -75,43 +75,43 @@
             <div class="container-left">
                 <ul class="menu">
                     <li class="menu-item">
-                        <a href="{{ url('/admin/dashboard') }}">
+                        <a href="{{ route('dashboard') }}">
                             <span class="menu-icon"><i class="fa-solid fa-gauge"></i></span>
                             <span class="menu-text">Dashboard</span>
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="{{ url('/admin/productTypes') }}">
+                        <a href="{{ route('productTypeMasterList') }}">
                             <span class="menu-icon"><i class="fa-solid fa-laptop"></i></span>
                             <span class="menu-text">Loại sản phẩm</span>
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="{{ url('/admin/brands') }}">
+                        <a href="{{ route('brandMasterList') }}">
                             <span class="menu-icon"><i class="fa-solid fa-bandage"></i></span>
                             <span class="menu-text">Nhãn hiệu</span>
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="{{ url('/admin/products') }}">
+                        <a href="{{ route('productMasterList') }}">
                             <span class="menu-icon"><i class="fa-solid fa-boxes-stacked"></i></span>
                             <span class="menu-text">Sản phẩm</span>
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="{{ url('/admin/featuredProducts') }}">
+                        <a href="{{ route('featuredProductMasterList') }}">
                             <span class="menu-icon"><i class="fa-brands fa-product-hunt"></i></span>
                             <span class="menu-text">Sản phẩm nổi bật</span>
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="{{ url('/admin/users') }}">
+                        <a href="{{ route('userMasterList') }}">
                             <span class="menu-icon"><i class="fa-solid fa-users"></i></span>
                             <span class="menu-text">Người dùng</span>
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="{{ url('/admin/orders') }}">
+                        <a href="{{ route('orderMasterList') }}">
                             <span class="menu-icon"><i class="fa-solid fa-boxes-packing"></i></span>
                             <span class="menu-text">Đơn hàng</span>
                         </a>
