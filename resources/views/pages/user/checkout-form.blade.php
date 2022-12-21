@@ -55,7 +55,7 @@ Thanh toán
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
-                        <label>Ghi chú đơn hàng <textarea rows="4" cols="" name="note">Note abc</textarea>
+                        <label>Ghi chú đơn hàng <textarea rows="4" cols="" name="note"></textarea>
                         </label>
                     </div>
                 </div>

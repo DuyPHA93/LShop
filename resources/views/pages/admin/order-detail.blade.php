@@ -225,8 +225,7 @@ Chi tiết đơn hàng
                                         @else
                                         <div>Xin vui lòng nhập lý do trả về (tối đa 1000 kí tự).</div>
                                         <textarea rows="5" cols="" class="d-form-control dw-100"
-                                            name="reasonCancelOrder" required></textarea>
-                                        <input type="hidden" name="isDeny" value="1">
+                                            name="reasonCancelOrder"></textarea>
                                         <button type="button" class="d-btn d-default-btn mt-3" id="cancel_order_btn">
                                             <i class="fa-solid fa-arrow-right-arrow-left icon"></i> Hủy
                                         </button>

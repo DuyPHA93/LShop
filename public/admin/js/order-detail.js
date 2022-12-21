@@ -15,9 +15,13 @@ let validator = $("#frm").validate({
 	}
 });
 
-function apply() {
+function apply(isDeny) {
 	let myForm = document.getElementById('frm');
 	let formData = new FormData(myForm);
+
+	if (isDeny) {
+		formData.append('isDeny', 1);
+	}
 
 	$.ajax({
 		url: $(myForm).attr('action'),
@@ -54,12 +58,16 @@ function apply() {
 }
 
 $('#apply_btn').click(function() {
+	$("textarea[name=reasonCancelOrder]").rules("remove", "required");
 	if (!validator.form()) return false;
 
-	apply();
+	apply(false);
 })
 
 $('#cancel_order_btn').click(function() {
+	$("textarea[name=reasonCancelOrder]").rules("add", "required");
+	if (!validator.form()) return false;
+
 	Swal.fire({
 		title: 'Bạn có chắc không ?',
 		text: "Bạn sẽ không thể hoàn tác điều này !",
@@ -71,7 +79,7 @@ $('#cancel_order_btn').click(function() {
 		cancelButtonText: 'Hủy bỏ'
 	  }).then((result) => {
 		if (result.isConfirmed) {
-			apply();
+			apply(true);
 		}
 	})
 })
